@@ -3667,8 +3667,31 @@
                 "name": "API",
                 "description": "",
                 "mediaImage": "",
-                "file": "shared/guides/angular-rspack/api/nx-angular-rspack/create-config",
-                "itemList": [],
+                "file": "",
+                "itemList": [
+                  {
+                    "id": "create-config",
+                    "name": "Create Config",
+                    "description": "",
+                    "mediaImage": "",
+                    "file": "shared/guides/angular-rspack/api/nx-angular-rspack/create-config",
+                    "itemList": [],
+                    "isExternal": false,
+                    "path": "/technologies/angular/angular-rspack/api/create-config",
+                    "tags": ["create-config"]
+                  },
+                  {
+                    "id": "create-server",
+                    "name": "Create Server",
+                    "description": "",
+                    "mediaImage": "",
+                    "file": "shared/guides/angular-rspack/api/nx-angular-rspack/create-server",
+                    "itemList": [],
+                    "isExternal": false,
+                    "path": "/technologies/angular/angular-rspack/api/create-server",
+                    "tags": ["create-server"]
+                  }
+                ],
                 "isExternal": false,
                 "path": "/technologies/angular/angular-rspack/api",
                 "tags": []
@@ -3690,8 +3713,31 @@
                 "name": "API",
                 "description": "",
                 "mediaImage": "",
-                "file": "shared/guides/angular-rspack/api/nx-angular-rsbuild/create-config",
-                "itemList": [],
+                "file": "",
+                "itemList": [
+                  {
+                    "id": "create-config",
+                    "name": "Create Config",
+                    "description": "",
+                    "mediaImage": "",
+                    "file": "shared/guides/angular-rspack/api/nx-angular-rsbuild/create-config",
+                    "itemList": [],
+                    "isExternal": false,
+                    "path": "/technologies/angular/angular-rsbuild/api/create-config",
+                    "tags": ["create-config"]
+                  },
+                  {
+                    "id": "create-server",
+                    "name": "Create Server",
+                    "description": "",
+                    "mediaImage": "",
+                    "file": "shared/guides/angular-rspack/api/nx-angular-rsbuild/create-server",
+                    "itemList": [],
+                    "isExternal": false,
+                    "path": "/technologies/angular/angular-rsbuild/api/create-server",
+                    "tags": ["create-server"]
+                  }
+                ],
                 "isExternal": false,
                 "path": "/technologies/angular/angular-rsbuild/api",
                 "tags": []
@@ -5160,14 +5206,14 @@
                     "tags": []
                   },
                   {
-                    "id": "storybook-7-setup",
-                    "name": "Storybook 7",
-                    "description": "This guide explains how you can set up Storybook version 7 in your Nx workspace. It contains information about the generators and the frameworks that are supported.",
+                    "id": "storybook-9-setup",
+                    "name": "Storybook 9",
+                    "description": "This guide explains how you can set up Storybook version 9 in your Nx workspace. It contains information about the generators and the frameworks that are supported.",
                     "mediaImage": "",
-                    "file": "shared/packages/storybook/storybook-7-setup",
+                    "file": "shared/packages/storybook/storybook-9-setup",
                     "itemList": [],
                     "isExternal": false,
-                    "path": "/technologies/test-tools/storybook/recipes/storybook-7-setup",
+                    "path": "/technologies/test-tools/storybook/recipes/storybook-9-setup",
                     "tags": []
                   },
                   {
@@ -5876,8 +5922,31 @@
             "name": "API",
             "description": "",
             "mediaImage": "",
-            "file": "shared/guides/angular-rspack/api/nx-angular-rspack/create-config",
-            "itemList": [],
+            "file": "",
+            "itemList": [
+              {
+                "id": "create-config",
+                "name": "Create Config",
+                "description": "",
+                "mediaImage": "",
+                "file": "shared/guides/angular-rspack/api/nx-angular-rspack/create-config",
+                "itemList": [],
+                "isExternal": false,
+                "path": "/technologies/angular/angular-rspack/api/create-config",
+                "tags": ["create-config"]
+              },
+              {
+                "id": "create-server",
+                "name": "Create Server",
+                "description": "",
+                "mediaImage": "",
+                "file": "shared/guides/angular-rspack/api/nx-angular-rspack/create-server",
+                "itemList": [],
+                "isExternal": false,
+                "path": "/technologies/angular/angular-rspack/api/create-server",
+                "tags": ["create-server"]
+              }
+            ],
             "isExternal": false,
             "path": "/technologies/angular/angular-rspack/api",
             "tags": []
@@ -5899,8 +5968,31 @@
             "name": "API",
             "description": "",
             "mediaImage": "",
-            "file": "shared/guides/angular-rspack/api/nx-angular-rsbuild/create-config",
-            "itemList": [],
+            "file": "",
+            "itemList": [
+              {
+                "id": "create-config",
+                "name": "Create Config",
+                "description": "",
+                "mediaImage": "",
+                "file": "shared/guides/angular-rspack/api/nx-angular-rsbuild/create-config",
+                "itemList": [],
+                "isExternal": false,
+                "path": "/technologies/angular/angular-rsbuild/api/create-config",
+                "tags": ["create-config"]
+              },
+              {
+                "id": "create-server",
+                "name": "Create Server",
+                "description": "",
+                "mediaImage": "",
+                "file": "shared/guides/angular-rspack/api/nx-angular-rsbuild/create-server",
+                "itemList": [],
+                "isExternal": false,
+                "path": "/technologies/angular/angular-rsbuild/api/create-server",
+                "tags": ["create-server"]
+              }
+            ],
             "isExternal": false,
             "path": "/technologies/angular/angular-rsbuild/api",
             "tags": []
@@ -6260,8 +6352,31 @@
         "name": "API",
         "description": "",
         "mediaImage": "",
-        "file": "shared/guides/angular-rspack/api/nx-angular-rspack/create-config",
-        "itemList": [],
+        "file": "",
+        "itemList": [
+          {
+            "id": "create-config",
+            "name": "Create Config",
+            "description": "",
+            "mediaImage": "",
+            "file": "shared/guides/angular-rspack/api/nx-angular-rspack/create-config",
+            "itemList": [],
+            "isExternal": false,
+            "path": "/technologies/angular/angular-rspack/api/create-config",
+            "tags": ["create-config"]
+          },
+          {
+            "id": "create-server",
+            "name": "Create Server",
+            "description": "",
+            "mediaImage": "",
+            "file": "shared/guides/angular-rspack/api/nx-angular-rspack/create-server",
+            "itemList": [],
+            "isExternal": false,
+            "path": "/technologies/angular/angular-rspack/api/create-server",
+            "tags": ["create-server"]
+          }
+        ],
         "isExternal": false,
         "path": "/technologies/angular/angular-rspack/api",
         "tags": []
@@ -6387,11 +6502,56 @@
     "name": "API",
     "description": "",
     "mediaImage": "",
-    "file": "shared/guides/angular-rspack/api/nx-angular-rspack/create-config",
-    "itemList": [],
+    "file": "",
+    "itemList": [
+      {
+        "id": "create-config",
+        "name": "Create Config",
+        "description": "",
+        "mediaImage": "",
+        "file": "shared/guides/angular-rspack/api/nx-angular-rspack/create-config",
+        "itemList": [],
+        "isExternal": false,
+        "path": "/technologies/angular/angular-rspack/api/create-config",
+        "tags": ["create-config"]
+      },
+      {
+        "id": "create-server",
+        "name": "Create Server",
+        "description": "",
+        "mediaImage": "",
+        "file": "shared/guides/angular-rspack/api/nx-angular-rspack/create-server",
+        "itemList": [],
+        "isExternal": false,
+        "path": "/technologies/angular/angular-rspack/api/create-server",
+        "tags": ["create-server"]
+      }
+    ],
     "isExternal": false,
     "path": "/technologies/angular/angular-rspack/api",
     "tags": []
+  },
+  "/technologies/angular/angular-rspack/api/create-config": {
+    "id": "create-config",
+    "name": "Create Config",
+    "description": "",
+    "mediaImage": "",
+    "file": "shared/guides/angular-rspack/api/nx-angular-rspack/create-config",
+    "itemList": [],
+    "isExternal": false,
+    "path": "/technologies/angular/angular-rspack/api/create-config",
+    "tags": ["create-config"]
+  },
+  "/technologies/angular/angular-rspack/api/create-server": {
+    "id": "create-server",
+    "name": "Create Server",
+    "description": "",
+    "mediaImage": "",
+    "file": "shared/guides/angular-rspack/api/nx-angular-rspack/create-server",
+    "itemList": [],
+    "isExternal": false,
+    "path": "/technologies/angular/angular-rspack/api/create-server",
+    "tags": ["create-server"]
   },
   "/technologies/angular/angular-rsbuild": {
     "id": "angular-rsbuild",
@@ -6405,8 +6565,31 @@
         "name": "API",
         "description": "",
         "mediaImage": "",
-        "file": "shared/guides/angular-rspack/api/nx-angular-rsbuild/create-config",
-        "itemList": [],
+        "file": "",
+        "itemList": [
+          {
+            "id": "create-config",
+            "name": "Create Config",
+            "description": "",
+            "mediaImage": "",
+            "file": "shared/guides/angular-rspack/api/nx-angular-rsbuild/create-config",
+            "itemList": [],
+            "isExternal": false,
+            "path": "/technologies/angular/angular-rsbuild/api/create-config",
+            "tags": ["create-config"]
+          },
+          {
+            "id": "create-server",
+            "name": "Create Server",
+            "description": "",
+            "mediaImage": "",
+            "file": "shared/guides/angular-rspack/api/nx-angular-rsbuild/create-server",
+            "itemList": [],
+            "isExternal": false,
+            "path": "/technologies/angular/angular-rsbuild/api/create-server",
+            "tags": ["create-server"]
+          }
+        ],
         "isExternal": false,
         "path": "/technologies/angular/angular-rsbuild/api",
         "tags": []
@@ -6421,11 +6604,56 @@
     "name": "API",
     "description": "",
     "mediaImage": "",
-    "file": "shared/guides/angular-rspack/api/nx-angular-rsbuild/create-config",
-    "itemList": [],
+    "file": "",
+    "itemList": [
+      {
+        "id": "create-config",
+        "name": "Create Config",
+        "description": "",
+        "mediaImage": "",
+        "file": "shared/guides/angular-rspack/api/nx-angular-rsbuild/create-config",
+        "itemList": [],
+        "isExternal": false,
+        "path": "/technologies/angular/angular-rsbuild/api/create-config",
+        "tags": ["create-config"]
+      },
+      {
+        "id": "create-server",
+        "name": "Create Server",
+        "description": "",
+        "mediaImage": "",
+        "file": "shared/guides/angular-rspack/api/nx-angular-rsbuild/create-server",
+        "itemList": [],
+        "isExternal": false,
+        "path": "/technologies/angular/angular-rsbuild/api/create-server",
+        "tags": ["create-server"]
+      }
+    ],
     "isExternal": false,
     "path": "/technologies/angular/angular-rsbuild/api",
     "tags": []
+  },
+  "/technologies/angular/angular-rsbuild/api/create-config": {
+    "id": "create-config",
+    "name": "Create Config",
+    "description": "",
+    "mediaImage": "",
+    "file": "shared/guides/angular-rspack/api/nx-angular-rsbuild/create-config",
+    "itemList": [],
+    "isExternal": false,
+    "path": "/technologies/angular/angular-rsbuild/api/create-config",
+    "tags": ["create-config"]
+  },
+  "/technologies/angular/angular-rsbuild/api/create-server": {
+    "id": "create-server",
+    "name": "Create Server",
+    "description": "",
+    "mediaImage": "",
+    "file": "shared/guides/angular-rspack/api/nx-angular-rsbuild/create-server",
+    "itemList": [],
+    "isExternal": false,
+    "path": "/technologies/angular/angular-rsbuild/api/create-server",
+    "tags": ["create-server"]
   },
   "/technologies/react": {
     "id": "react",
@@ -9912,14 +10140,14 @@
                 "tags": []
               },
               {
-                "id": "storybook-7-setup",
-                "name": "Storybook 7",
-                "description": "This guide explains how you can set up Storybook version 7 in your Nx workspace. It contains information about the generators and the frameworks that are supported.",
+                "id": "storybook-9-setup",
+                "name": "Storybook 9",
+                "description": "This guide explains how you can set up Storybook version 9 in your Nx workspace. It contains information about the generators and the frameworks that are supported.",
                 "mediaImage": "",
-                "file": "shared/packages/storybook/storybook-7-setup",
+                "file": "shared/packages/storybook/storybook-9-setup",
                 "itemList": [],
                 "isExternal": false,
-                "path": "/technologies/test-tools/storybook/recipes/storybook-7-setup",
+                "path": "/technologies/test-tools/storybook/recipes/storybook-9-setup",
                 "tags": []
               },
               {
@@ -10508,14 +10736,14 @@
             "tags": []
           },
           {
-            "id": "storybook-7-setup",
-            "name": "Storybook 7",
-            "description": "This guide explains how you can set up Storybook version 7 in your Nx workspace. It contains information about the generators and the frameworks that are supported.",
+            "id": "storybook-9-setup",
+            "name": "Storybook 9",
+            "description": "This guide explains how you can set up Storybook version 9 in your Nx workspace. It contains information about the generators and the frameworks that are supported.",
             "mediaImage": "",
-            "file": "shared/packages/storybook/storybook-7-setup",
+            "file": "shared/packages/storybook/storybook-9-setup",
             "itemList": [],
             "isExternal": false,
-            "path": "/technologies/test-tools/storybook/recipes/storybook-7-setup",
+            "path": "/technologies/test-tools/storybook/recipes/storybook-9-setup",
             "tags": []
           },
           {
@@ -10712,14 +10940,14 @@
         "tags": []
       },
       {
-        "id": "storybook-7-setup",
-        "name": "Storybook 7",
-        "description": "This guide explains how you can set up Storybook version 7 in your Nx workspace. It contains information about the generators and the frameworks that are supported.",
+        "id": "storybook-9-setup",
+        "name": "Storybook 9",
+        "description": "This guide explains how you can set up Storybook version 9 in your Nx workspace. It contains information about the generators and the frameworks that are supported.",
         "mediaImage": "",
-        "file": "shared/packages/storybook/storybook-7-setup",
+        "file": "shared/packages/storybook/storybook-9-setup",
         "itemList": [],
         "isExternal": false,
-        "path": "/technologies/test-tools/storybook/recipes/storybook-7-setup",
+        "path": "/technologies/test-tools/storybook/recipes/storybook-9-setup",
         "tags": []
       },
       {
@@ -10881,15 +11109,15 @@
     "path": "/technologies/test-tools/storybook/recipes/best-practices",
     "tags": []
   },
-  "/technologies/test-tools/storybook/recipes/storybook-7-setup": {
-    "id": "storybook-7-setup",
-    "name": "Storybook 7",
-    "description": "This guide explains how you can set up Storybook version 7 in your Nx workspace. It contains information about the generators and the frameworks that are supported.",
+  "/technologies/test-tools/storybook/recipes/storybook-9-setup": {
+    "id": "storybook-9-setup",
+    "name": "Storybook 9",
+    "description": "This guide explains how you can set up Storybook version 9 in your Nx workspace. It contains information about the generators and the frameworks that are supported.",
     "mediaImage": "",
-    "file": "shared/packages/storybook/storybook-7-setup",
+    "file": "shared/packages/storybook/storybook-9-setup",
     "itemList": [],
     "isExternal": false,
-    "path": "/technologies/test-tools/storybook/recipes/storybook-7-setup",
+    "path": "/technologies/test-tools/storybook/recipes/storybook-9-setup",
     "tags": []
   },
   "/technologies/test-tools/storybook/recipes/overview-react": {
