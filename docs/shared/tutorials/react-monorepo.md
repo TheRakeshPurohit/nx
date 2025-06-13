@@ -31,18 +31,16 @@ Features we'll use in this monorepo:
 - [Scaffold new code with generators](/features/generate-code)
 - [Updates dependencies with automated migrations](/features/automate-updating-dependencies)
 
-Visit our ["Why Nx" page](/getting-started/why-nx) for more details.
-
 ## Final Code
 
 Here's the source code of the final result for this tutorial.
 
-{% github-repository url="https://github.com/nrwl/nx-recipes/tree/main/react-monorepo" /%}
+{% github-repository url="<https://github.com/nrwl/nx-recipes/tree/main/react-monorepo>" /%}
 
 <!-- {% stackblitz-button url="github.com/nrwl/nx-recipes/tree/main/react-standalone?file=README.md" /%} -->
 
 {% youtube
-src="https://www.youtube.com/embed/gc4N7kxiA50"
+src="<https://www.youtube.com/embed/gc4N7kxiA50>"
 title="Nx React Monorepo Tutorial Walkthrough"
 /%}
 
@@ -321,6 +319,24 @@ As you can see, it generates a new application in the `apps/inventory/` folder. 
 npx nx g @nx/react:app apps/inventory
 ```
 
+### Handling Port Conflicts with Multiple Apps
+
+When you have multiple applications in your monorepo, running e2e tests in parallel can cause port conflicts if the generated apps use the same port. To ensure faster CI times with parallel execution, configure different ports for each app.
+
+Update the serve configuration for your second app to use a different port:
+
+```json {% fileName="apps/inventory/project.json" %}
+{
+  "targets": {
+    "serve": {
+      "options": {
+        "port": 4201
+      }
+    }
+  }
+}
+```
+
 ## Share Code with Local Libraries
 
 When you develop your React application, usually all your logic sits in the `app` folder. Ideally separated by various folder names which represent your "domains". As your app grows, however, the app becomes more and more monolithic and the code is unable to be shared with other applications.
@@ -364,7 +380,7 @@ npx nx g @nx/react:library libs/orders --unitTestRunner=vitest --bundler=none
 npx nx g @nx/react:library libs/shared/ui --unitTestRunner=vitest --bundler=none
 ```
 
-Note how we type out the full path in the `directory` flag to place the libraries into a subfolder. You can choose whatever folder structure you like to organize your projects. If you change your mind later, you can run the [move generator](/nx-api/workspace/generators/move) to move a project to a different folder.
+Note how we type out the full path in the `directory` flag to place the libraries into a subfolder. You can choose whatever folder structure you like to organize your projects. If you change your mind later, you can run the [move generator](/reference/core-api/workspace/generators/move) to move a project to a different folder.
 
 Running the above commands should lead to the following directory structure:
 
