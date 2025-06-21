@@ -96,7 +96,12 @@ node_modules/
 *.njsproj
 *.sln
 *.sw?
+.specstory/**
+.cursorindexingignore
 # OS specific
 # Task files
 tasks.json
 tasks/ 
+
+# Raw docs local configuration (machine-specific)
+.rawdocs.local.json

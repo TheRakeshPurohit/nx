@@ -12,9 +12,10 @@
           "name": "Getting Started",
           "id": "getting-started",
           "description": "Get started with basic information, concepts and tutorials.",
+          "file": "shared/getting-started/quick-start",
           "itemList": [
             {
-              "name": "Intro to Nx",
+              "name": "Introduction",
               "id": "intro",
               "file": "shared/getting-started/intro"
             },
@@ -24,9 +25,15 @@
               "file": "shared/getting-started/installation"
             },
             {
-              "name": "Why Nx?",
-              "id": "why-nx",
-              "file": "shared/getting-started/why-nx"
+              "name": "Start a new project",
+              "id": "start-new-project",
+              "file": "shared/getting-started/start-new-project"
+            },
+            {
+              "name": "Add to existing project",
+              "id": "adding-to-existing",
+              "tags": ["init"],
+              "file": "shared/getting-started/start-with-existing-project"
             },
             {
               "name": "Editor Integration",
@@ -34,6 +41,13 @@
               "id": "editor-setup",
               "tags": ["editor-setup"],
               "file": "shared/getting-started/editor-setup"
+            },
+            {
+              "name": "AI Integration",
+              "description": "Learn about how to integrate Nx with your favorite AI assistant.",
+              "id": "ai-integration",
+              "tags": ["ai-integration"],
+              "file": "shared/getting-started/ai-setup"
             },
             {
               "name": "Tutorials",
@@ -481,7 +495,6 @@
                 }
               ]
             },
-
             {
               "name": "Enforce Module Boundaries",
               "id": "enforce-module-boundaries",
@@ -889,7 +902,20 @@
                     {
                       "name": "API",
                       "id": "api",
-                      "file": "shared/guides/angular-rspack/api/nx-angular-rspack/create-config"
+                      "itemList": [
+                        {
+                          "name": "Create Config",
+                          "id": "create-config",
+                          "tags": ["create-config"],
+                          "file": "shared/guides/angular-rspack/api/nx-angular-rspack/create-config"
+                        },
+                        {
+                          "name": "Create Server",
+                          "id": "create-server",
+                          "tags": ["create-server"],
+                          "file": "shared/guides/angular-rspack/api/nx-angular-rspack/create-server"
+                        }
+                      ]
                     }
                   ]
                 },
@@ -900,7 +926,20 @@
                     {
                       "name": "API",
                       "id": "api",
-                      "file": "shared/guides/angular-rspack/api/nx-angular-rsbuild/create-config"
+                      "itemList": [
+                        {
+                          "name": "Create Config",
+                          "id": "create-config",
+                          "tags": ["create-config"],
+                          "file": "shared/guides/angular-rspack/api/nx-angular-rsbuild/create-config"
+                        },
+                        {
+                          "name": "Create Server",
+                          "id": "create-server",
+                          "tags": ["create-server"],
+                          "file": "shared/guides/angular-rspack/api/nx-angular-rsbuild/create-server"
+                        }
+                      ]
                     }
                   ]
                 }
@@ -1484,7 +1523,6 @@
                     }
                   ]
                 },
-
                 {
                   "name": "Rsbuild",
                   "id": "rsbuild",
@@ -1612,10 +1650,10 @@
                           "file": "shared/packages/storybook/best-practices"
                         },
                         {
-                          "id": "storybook-7-setup",
-                          "name": "Storybook 7",
-                          "description": "This guide explains how you can set up Storybook version 7 in your Nx workspace. It contains information about the generators and the frameworks that are supported.",
-                          "file": "shared/packages/storybook/storybook-7-setup"
+                          "id": "storybook-9-setup",
+                          "name": "Storybook 9",
+                          "description": "This guide explains how you can set up Storybook version 9 in your Nx workspace. It contains information about the generators and the frameworks that are supported.",
+                          "file": "shared/packages/storybook/storybook-9-setup"
                         },
                         {
                           "name": "Set up Storybook for React Projects",
@@ -2463,6 +2501,7 @@
           "name": "Intro",
           "id": "intro",
           "description": "Learn about basic Nx Cloud knowledge.",
+          "file": "nx-cloud/intro/ci-with-nx",
           "itemList": [
             {
               "name": "CI with Nx",
@@ -3333,10 +3372,10 @@
               "file": "shared/packages/storybook/best-practices"
             },
             {
-              "id": "storybook-7-setup",
-              "name": "Storybook 7",
-              "description": "This guide explains how you can set up Storybook version 7 in your Nx workspace. It contains information about the generators and the frameworks that are supported.",
-              "file": "shared/packages/storybook/storybook-7-setup"
+              "id": "storybook-9-setup",
+              "name": "Storybook 9",
+              "description": "This guide explains how you can set up Storybook version 9 in your Nx workspace. It contains information about the generators and the frameworks that are supported.",
+              "file": "shared/packages/storybook/storybook-9-setup"
             }
           ]
         },

@@ -17,7 +17,7 @@ import {
   getTaskDetails,
   hashTasksThatDoNotDependOnOutputsOfOtherTasks,
 } from '../hasher/hash-task';
-import { logError, logInfo, RunMode } from '../native';
+import { logDebug, RunMode } from '../native';
 import {
   runPostTasksExecution,
   runPreTasksExecution,
@@ -216,13 +216,13 @@ async function getTerminalOutputLifeCycle(
         // @ts-ignore
         return (chunk, encoding, callback) => {
           if (isError) {
-            logError(
+            logDebug(
               Buffer.isBuffer(chunk)
                 ? chunk.toString(encoding)
                 : chunk.toString()
             );
           } else {
-            logInfo(
+            logDebug(
               Buffer.isBuffer(chunk)
                 ? chunk.toString(encoding)
                 : chunk.toString()
