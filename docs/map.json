@@ -12,9 +12,10 @@
           "name": "Getting Started",
           "id": "getting-started",
           "description": "Get started with basic information, concepts and tutorials.",
+          "file": "shared/getting-started/quick-start",
           "itemList": [
             {
-              "name": "Intro to Nx",
+              "name": "Introduction",
               "id": "intro",
               "file": "shared/getting-started/intro"
             },
@@ -24,9 +25,15 @@
               "file": "shared/getting-started/installation"
             },
             {
-              "name": "Why Nx?",
-              "id": "why-nx",
-              "file": "shared/getting-started/why-nx"
+              "name": "Start a new project",
+              "id": "start-new-project",
+              "file": "shared/getting-started/start-new-project"
+            },
+            {
+              "name": "Add to existing project",
+              "id": "adding-to-existing",
+              "tags": ["init"],
+              "file": "shared/getting-started/start-with-existing-project"
             },
             {
               "name": "Editor Integration",
@@ -34,6 +41,13 @@
               "id": "editor-setup",
               "tags": ["editor-setup"],
               "file": "shared/getting-started/editor-setup"
+            },
+            {
+              "name": "AI Integration",
+              "description": "Learn about how to integrate Nx with your favorite AI assistant.",
+              "id": "ai-integration",
+              "tags": ["ai-integration"],
+              "file": "shared/getting-started/ai-setup"
             },
             {
               "name": "Tutorials",
@@ -134,10 +148,11 @@
               "description": "Features of Nx and Nx Cloud that improve CI",
               "itemList": [
                 {
-                  "name": "Run Only Tasks Affected by a PR",
-                  "id": "affected",
+                  "name": "AI-Powered Self-Healing CI",
+                  "description": "Learn how Nx Cloud Self-Healing CI uses AI to automatically detect, analyze, and fix CI failures, eliminating the need to babysit PRs.",
+                  "id": "self-healing-ci",
                   "file": "",
-                  "path": "/ci/features/affected",
+                  "path": "/ci/features/self-healing-ci",
                   "isExternal": true
                 },
                 {
@@ -154,6 +169,13 @@
                   "id": "distribute-task-execution",
                   "file": "",
                   "path": "/ci/features/distribute-task-execution",
+                  "isExternal": true
+                },
+                {
+                  "name": "Run Only Tasks Affected by a PR",
+                  "id": "affected",
+                  "file": "",
+                  "path": "/ci/features/affected",
                   "isExternal": true
                 },
                 {
@@ -287,8 +309,8 @@
                   "file": "shared/recipes/running-tasks/convert-to-inferred"
                 },
                 {
-                  "name": "Self-Host the Remote Cache",
-                  "description": "Host the remote cache without using Nx Cloud",
+                  "name": "Remote Cache",
+                  "description": "Different options of hosting remote cache",
                   "id": "self-hosted-caching",
                   "tags": ["self-hosted-caching"],
                   "file": "shared/recipes/running-tasks/self-hosted-caching"
@@ -481,7 +503,6 @@
                 }
               ]
             },
-
             {
               "name": "Enforce Module Boundaries",
               "id": "enforce-module-boundaries",
@@ -889,7 +910,20 @@
                     {
                       "name": "API",
                       "id": "api",
-                      "file": "shared/guides/angular-rspack/api/nx-angular-rspack/create-config"
+                      "itemList": [
+                        {
+                          "name": "Create Config",
+                          "id": "create-config",
+                          "tags": ["create-config"],
+                          "file": "shared/guides/angular-rspack/api/nx-angular-rspack/create-config"
+                        },
+                        {
+                          "name": "Create Server",
+                          "id": "create-server",
+                          "tags": ["create-server"],
+                          "file": "shared/guides/angular-rspack/api/nx-angular-rspack/create-server"
+                        }
+                      ]
                     }
                   ]
                 },
@@ -900,7 +934,20 @@
                     {
                       "name": "API",
                       "id": "api",
-                      "file": "shared/guides/angular-rspack/api/nx-angular-rsbuild/create-config"
+                      "itemList": [
+                        {
+                          "name": "Create Config",
+                          "id": "create-config",
+                          "tags": ["create-config"],
+                          "file": "shared/guides/angular-rspack/api/nx-angular-rsbuild/create-config"
+                        },
+                        {
+                          "name": "Create Server",
+                          "id": "create-server",
+                          "tags": ["create-server"],
+                          "file": "shared/guides/angular-rspack/api/nx-angular-rsbuild/create-server"
+                        }
+                      ]
                     }
                   ]
                 }
@@ -1484,7 +1531,6 @@
                     }
                   ]
                 },
-
                 {
                   "name": "Rsbuild",
                   "id": "rsbuild",
@@ -1612,10 +1658,10 @@
                           "file": "shared/packages/storybook/best-practices"
                         },
                         {
-                          "id": "storybook-7-setup",
-                          "name": "Storybook 7",
-                          "description": "This guide explains how you can set up Storybook version 7 in your Nx workspace. It contains information about the generators and the frameworks that are supported.",
-                          "file": "shared/packages/storybook/storybook-7-setup"
+                          "id": "storybook-9-setup",
+                          "name": "Storybook 9",
+                          "description": "This guide explains how you can set up Storybook version 9 in your Nx workspace. It contains information about the generators and the frameworks that are supported.",
+                          "file": "shared/packages/storybook/storybook-9-setup"
                         },
                         {
                           "name": "Set up Storybook for React Projects",
@@ -2463,6 +2509,7 @@
           "name": "Intro",
           "id": "intro",
           "description": "Learn about basic Nx Cloud knowledge.",
+          "file": "nx-cloud/intro/ci-with-nx",
           "itemList": [
             {
               "name": "CI with Nx",
@@ -2504,11 +2551,10 @@
           "description": "Features of Nx and Nx Cloud that improve CI",
           "itemList": [
             {
-              "name": "Run Only Tasks Affected by a PR",
-              "description": "This allows to only run tasks on projects that got changed in a given PR.",
-              "tags": ["run-tasks"],
-              "id": "affected",
-              "file": "shared/using-nx/affected"
+              "name": "AI-Powered Self-Healing CI",
+              "description": "Learn how Nx Cloud Self-Healing CI uses AI to automatically detect, analyze, and fix CI failures, eliminating the need to babysit PRs.",
+              "id": "self-healing-ci",
+              "file": "shared/features/self-healing-ci"
             },
             {
               "name": "Use Remote Caching (Nx Replay)",
@@ -2524,6 +2570,19 @@
               "file": "shared/features/distribute-task-execution"
             },
             {
+              "name": "Run Only Tasks Affected by a PR",
+              "description": "This allows to only run tasks on projects that got changed in a given PR.",
+              "tags": ["run-tasks"],
+              "id": "affected",
+              "file": "shared/using-nx/affected"
+            },
+            {
+              "name": "Dynamically Allocate Agents",
+              "description": "Learn how to dynamically allocate agents based on the size of a PR, keeping the balance of speed and cost.",
+              "id": "dynamic-agents",
+              "file": "nx-cloud/features/dynamic-agents"
+            },
+            {
               "name": "Automatically Split E2E Tasks (Atomizer)",
               "id": "split-e2e-tasks",
               "description": "Learn how Nx can automatically split e2e tests into fine-grained chunks for a much better distribution on Nx Agents.",
@@ -2534,12 +2593,6 @@
               "id": "flaky-tasks",
               "description": "Learn how Nx Cloud is able to automatically identify flaky tasks and re-run them for you.",
               "file": "nx-cloud/features/flaky-tasks"
-            },
-            {
-              "name": "Dynamically Allocate Agents",
-              "description": "Learn how to dynamically allocate agents based on the size of a PR, keeping the balance of speed and cost.",
-              "id": "dynamic-agents",
-              "file": "nx-cloud/features/dynamic-agents"
             },
             {
               "name": "Explain With AI",
@@ -2790,6 +2843,25 @@
                       "file": "nx-cloud/enterprise/conformance/publish-conformance-rules-to-nx-cloud"
                     }
                   ]
+                },
+                {
+                  "name": "Polygraph",
+                  "description": "Enterprise features for visualizing dependencies and enforcing standards across multiple repositories",
+                  "id": "polygraph",
+                  "tags": ["polygraph"],
+                  "file": "nx-cloud/enterprise/polygraph"
+                },
+                {
+                  "name": "Metadata Only Workspaces",
+                  "id": "metadata-only-workspace",
+                  "tags": ["polygraph"],
+                  "file": "nx-cloud/enterprise/metadata-only-workspace"
+                },
+                {
+                  "name": "Custom Workflows",
+                  "id": "custom-workflows",
+                  "tags": ["polygraph"],
+                  "file": "nx-cloud/enterprise/custom-workflows"
                 }
               ]
             },
@@ -2852,6 +2924,11 @@
               "name": "Environment Variables",
               "id": "env-vars",
               "file": "nx-cloud/reference/env-vars"
+            },
+            {
+              "name": "Credit Pricing",
+              "id": "credits-pricing",
+              "file": "nx-cloud/reference/nx-cloud-credits-pricing"
             },
             {
               "name": "Release Notes",
@@ -3048,6 +3125,24 @@
               "id": "logout",
               "tags": ["login"],
               "file": "generated/cli/logout"
+            },
+            {
+              "name": "fix-ci",
+              "id": "fix-ci",
+              "tags": ["nx-cloud", "ci"],
+              "file": "generated/cli/fix-ci"
+            },
+            {
+              "name": "record",
+              "id": "record",
+              "tags": ["nx-cloud", "ci"],
+              "file": "generated/cli/record"
+            },
+            {
+              "name": "start-ci-run",
+              "id": "start-ci-run",
+              "tags": ["nx-cloud", "ci"],
+              "file": "generated/cli/start-ci-run"
             }
           ]
         },
@@ -3333,10 +3428,10 @@
               "file": "shared/packages/storybook/best-practices"
             },
             {
-              "id": "storybook-7-setup",
-              "name": "Storybook 7",
-              "description": "This guide explains how you can set up Storybook version 7 in your Nx workspace. It contains information about the generators and the frameworks that are supported.",
-              "file": "shared/packages/storybook/storybook-7-setup"
+              "id": "storybook-9-setup",
+              "name": "Storybook 9",
+              "description": "This guide explains how you can set up Storybook version 9 in your Nx workspace. It contains information about the generators and the frameworks that are supported.",
+              "file": "shared/packages/storybook/storybook-9-setup"
             }
           ]
         },

@@ -343,7 +343,8 @@ export function createAPI(overrideReleaseConfig: NxReleaseConfiguration) {
           await getLatestGitTagForPattern(
             nxReleaseConfig.releaseTagPattern,
             {},
-            nxReleaseConfig.releaseTagPatternCheckAllBranchesWhen
+            nxReleaseConfig.releaseTagPatternCheckAllBranchesWhen,
+            nxReleaseConfig.releaseTagPatternRequireSemver
           )
         )?.tag;
       if (!workspaceChangelogFromRef) {
@@ -527,24 +528,25 @@ export function createAPI(overrideReleaseConfig: NxReleaseConfiguration) {
                     projectName: project.name,
                     releaseGroupName: releaseGroup.name,
                   },
-                  releaseGroup.releaseTagPatternCheckAllBranchesWhen
+                  releaseGroup.releaseTagPatternCheckAllBranchesWhen,
+                  releaseGroup.releaseTagPatternRequireSemver
                 )
               )?.tag;
 
             if (!fromRef && useAutomaticFromRef) {
               const firstCommit = await getFirstGitCommit();
-              const allCommits = await getCommits(firstCommit, toSHA);
-              const commitsForProject = allCommits.filter((c) =>
-                c.affectedFiles.find((f) => f.startsWith(project.data.root))
-              );
+              commits = await filterProjectCommits({
+                fromSHA: firstCommit,
+                toSHA,
+                projectPath: project.data.root,
+              });
 
-              fromRef = commitsForProject[0]?.shortHash;
+              fromRef = commits[0]?.shortHash;
               if (args.verbose) {
                 console.log(
                   `Determined --from ref for ${project.name} from the first commit in which it exists: ${fromRef}`
                 );
               }
-              commits = commitsForProject;
             }
 
             if (!fromRef && !commits) {
@@ -554,7 +556,11 @@ export function createAPI(overrideReleaseConfig: NxReleaseConfiguration) {
             }
 
             if (!commits) {
-              commits = await getCommits(fromRef, toSHA);
+              commits = await filterProjectCommits({
+                fromSHA: fromRef,
+                toSHA,
+                projectPath: project.data.root,
+              });
             }
 
             const { fileMap } = await createFileMapUsingProjectGraph(
@@ -665,7 +671,8 @@ export function createAPI(overrideReleaseConfig: NxReleaseConfiguration) {
               await getLatestGitTagForPattern(
                 releaseGroup.releaseTagPattern,
                 {},
-                releaseGroup.releaseTagPatternCheckAllBranchesWhen
+                releaseGroup.releaseTagPatternCheckAllBranchesWhen,
+                releaseGroup.releaseTagPatternRequireSemver
               )
             )?.tag;
           if (!fromRef) {
@@ -771,18 +778,6 @@ function resolveChangelogVersions(
   if (!args.version && !args.versionData) {
     throw new Error(
       `You must provide a version string and/or a versionData object.`
-    );
-  }
-
-  /**
-   * TODO: revaluate this assumption holistically in a dedicated PR when we add support for calver
-   * (e.g. the Release class also uses semver utils to check if prerelease).
-   *
-   * Right now, the given version must be valid semver in order to proceed
-   */
-  if (args.version && !valid(args.version)) {
-    throw new Error(
-      `The given version "${args.version}" is not a valid semver version. Please provide your version in the format "1.0.0", "1.0.0-beta.1" etc`
     );
   }
 
@@ -1347,6 +1342,21 @@ async function getCommits(
   const rawCommits = await getGitDiff(fromSHA, toSHA);
   // Parse as conventional commits
   return parseCommits(rawCommits);
+}
+
+async function filterProjectCommits({
+  fromSHA,
+  toSHA,
+  projectPath,
+}: {
+  fromSHA: string;
+  toSHA: string;
+  projectPath: string;
+}) {
+  const allCommits = await getCommits(fromSHA, toSHA);
+  return allCommits.filter((c) =>
+    c.affectedFiles.find((f) => f.startsWith(projectPath))
+  );
 }
 
 function filterHiddenChanges(

@@ -338,7 +338,8 @@ export class ReleaseGroupProcessor {
             {
               projectName: projectGraphNode.name,
             },
-            releaseGroupNode.group.releaseTagPatternCheckAllBranchesWhen
+            releaseGroupNode.group.releaseTagPatternCheckAllBranchesWhen,
+            releaseGroupNode.group.releaseTagPatternRequireSemver
           );
           this.cachedLatestMatchingGitTag.set(
             projectName,
@@ -1504,7 +1505,7 @@ Valid values are: ${validReleaseVersionPrefixes
 
     if (releaseGroup.projectsRelationship === 'fixed') {
       // For fixed groups, we only need to check one project
-      const project = releaseGroupFilteredProjects[0];
+      const project = releaseGroupFilteredProjects.values().next().value;
       const dependencies = this.projectGraph.dependencies[project] || [];
       const hasDependencyInChangedGroup = dependencies.some(
         (dep) =>

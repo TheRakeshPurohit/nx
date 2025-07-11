@@ -14,10 +14,7 @@ import {
   TargetConfiguration,
   writeJsonFile,
 } from '@nx/devkit';
-import {
-  calculateHashesForCreateNodes,
-  calculateHashForCreateNodes,
-} from '@nx/devkit/src/utils/calculate-hash-for-create-nodes';
+import { calculateHashesForCreateNodes } from '@nx/devkit/src/utils/calculate-hash-for-create-nodes';
 import {
   clearRequireCache,
   loadConfigFile,
@@ -30,9 +27,8 @@ import { getGlobPatternsFromPackageManagerWorkspaces } from 'nx/src/plugins/pack
 import { workspaceDataDirectory } from 'nx/src/utils/cache-directory';
 import { combineGlobPatterns } from 'nx/src/utils/globs';
 import { dirname, isAbsolute, join, relative, resolve } from 'path';
-import { getInstalledJestMajorVersion } from '../utils/version-utils';
 import { globWithWorkspaceContext } from 'nx/src/utils/workspace-context';
-import { normalize, sep } from 'node:path';
+import { normalize } from 'node:path';
 import { getNxRequirePaths } from 'nx/src/utils/installation-directory';
 
 const pmc = getPackageManagerCommand();
@@ -77,9 +73,10 @@ export const createNodesV2: CreateNodesV2<JestPluginOptions> = [
     // Cache jest preset(s) to avoid penalties of module load times. Most of jest configs will use the same preset.
     const presetCache: Record<string, unknown> = {};
 
-    const packageManagerWorkspacesGlob = combineGlobPatterns(
-      getGlobPatternsFromPackageManagerWorkspaces(context.workspaceRoot)
+    const isInPackageManagerWorkspaces = buildPackageJsonWorkspacesMatcher(
+      context.workspaceRoot
     );
+
     options = normalizeOptions(options);
 
     const { roots: projectRoots, configFiles: validConfigFiles } =
@@ -90,7 +87,7 @@ export const createNodesV2: CreateNodesV2<JestPluginOptions> = [
             checkIfConfigFileShouldBeProject(
               configFile,
               potentialRoot,
-              packageManagerWorkspacesGlob,
+              isInPackageManagerWorkspaces,
               context
             )
           ) {
@@ -163,15 +160,15 @@ export const createNodes: CreateNodes<JestPluginOptions> = [
 
     const projectRoot = dirname(configFilePath);
 
-    const packageManagerWorkspacesGlob = combineGlobPatterns(
-      getGlobPatternsFromPackageManagerWorkspaces(context.workspaceRoot)
+    const isInPackageManagerWorkspaces = buildPackageJsonWorkspacesMatcher(
+      context.workspaceRoot
     );
 
     if (
       !checkIfConfigFileShouldBeProject(
         configFilePath,
         projectRoot,
-        packageManagerWorkspacesGlob,
+        isInPackageManagerWorkspaces,
         context
       )
     ) {
@@ -200,10 +197,24 @@ export const createNodes: CreateNodes<JestPluginOptions> = [
   },
 ];
 
+function buildPackageJsonWorkspacesMatcher(
+  workspaceRoot: string
+): (path: string) => boolean {
+  if (process.env.NX_INFER_ALL_PACKAGE_JSONS === 'true') {
+    return () => true;
+  }
+
+  const packageManagerWorkspacesGlob = combineGlobPatterns(
+    getGlobPatternsFromPackageManagerWorkspaces(workspaceRoot)
+  );
+
+  return (path: string) => minimatch(path, packageManagerWorkspacesGlob);
+}
+
 function checkIfConfigFileShouldBeProject(
   configFilePath: string,
   projectRoot: string,
-  packageManagerWorkspacesGlob: string,
+  isInPackageManagerWorkspaces: (path: string) => boolean,
   context: CreateNodesContext | CreateNodesContextV2
 ): boolean {
   // Do not create a project if package.json and project.json isn't there.
@@ -219,7 +230,7 @@ function checkIfConfigFileShouldBeProject(
   ) {
     const path = joinPathFragments(projectRoot, 'package.json');
 
-    const isPackageJsonProject = minimatch(path, packageManagerWorkspacesGlob);
+    const isPackageJsonProject = isInPackageManagerWorkspaces(path);
 
     if (!isPackageJsonProject) {
       return false;
@@ -249,7 +260,16 @@ async function buildJestTargets(
   const absConfigFilePath = resolve(context.workspaceRoot, configFilePath);
 
   if (require.cache[absConfigFilePath]) clearRequireCache();
-  const rawConfig = await loadConfigFile(absConfigFilePath);
+  const rawConfig = await loadConfigFile(
+    absConfigFilePath,
+    // lookup for the same files we look for in the resolver and fall back to tsconfig.json
+    [
+      'tsconfig.spec.json',
+      'tsconfig.test.json',
+      'tsconfig.jest.json',
+      'tsconfig.json',
+    ]
+  );
 
   const targets: Record<string, TargetConfiguration> = {};
   const namedInputs = getNamedInputs(projectRoot, context);
@@ -434,12 +454,10 @@ async function buildJestTargets(
         context.workspaceRoot
       )) as typeof import('jest');
       const source = new jest.SearchSource(jestContext);
-
-      const jestVersion = getInstalledJestMajorVersion()!;
-      const specs =
-        jestVersion >= 30
-          ? await source.getTestPaths(config.globalConfig, config.projectConfig)
-          : await source.getTestPaths(config.globalConfig);
+      const specs = await source.getTestPaths(
+        config.globalConfig,
+        config.projectConfig
+      );
 
       const testPaths = new Set(specs.tests.map(({ path }) => path));
 
@@ -584,8 +602,9 @@ function resolvePresetInputWithJestResolver(
   const { default: jestResolve } = requireJestUtil<
     typeof import('jest-resolve')
   >('jest-resolve', projectRoot, workspaceRoot);
+  const absoluteProjectRoot = join(workspaceRoot, projectRoot);
   const presetModule = jestResolve.findNodeModule(presetPath, {
-    basedir: projectRoot,
+    basedir: absoluteProjectRoot,
     extensions: ['.json', '.js', '.cjs', '.mjs'],
   });
 
@@ -597,7 +616,7 @@ function resolvePresetInputWithJestResolver(
     return { externalDependencies: [presetValue] };
   }
 
-  const relativePath = relative(join(workspaceRoot, projectRoot), presetModule);
+  const relativePath = relative(absoluteProjectRoot, presetModule);
   return relativePath.startsWith('..')
     ? join('{workspaceRoot}', join(projectRoot, relativePath))
     : join('{projectRoot}', relativePath);

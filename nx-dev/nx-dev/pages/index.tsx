@@ -10,7 +10,7 @@ import {
   TeamAndCommunity,
   WorkBetterAchieveMoreShipQuicker,
 } from '@nx/nx-dev/ui-home';
-import { contactButton } from '../lib/components/headerCtaConfigs';
+import { contactButton } from '../lib/header-cta.configs';
 
 export default function Index(): JSX.Element {
   const headerCTAConfig = [contactButton];
@@ -24,7 +24,7 @@ export default function Index(): JSX.Element {
           url: 'https://nx.dev',
           title: 'Nx: Smart Repos · Fast Builds',
           description:
-            'Build system, optimized for monorepos, with AI-powered architectural awareness and advanced CI capabilities.',
+            'An AI-first build platform that connects everything from your editor to CI. Helping you deliver fast, without breaking things.',
           images: [
             {
               url: 'https://nx.dev/socials/nx-media.png',
